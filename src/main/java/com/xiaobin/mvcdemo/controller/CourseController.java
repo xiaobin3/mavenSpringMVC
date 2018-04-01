@@ -83,14 +83,14 @@ public class CourseController {
     }
 
     @RequestMapping(value="/save", method = RequestMethod.POST)
-    public String  doSave(@ModelAttribute Course course){
+    public String  doSave(@ModelAttribute Course course){//模型对象和页面数据的绑定
 
         log.debug("Info of Course:");
         log.debug(ReflectionToStringBuilder.toString(course));
 
         //在此进行业务操作，比如数据库持久化
         course.setCourseId(123);
-        return "redirect:view2/"+course.getCourseId();
+        return "redirect:view2/"+course.getCourseId();//页面重定向和转发的实现
     }
 
     @RequestMapping(value="/upload", method=RequestMethod.GET)
@@ -106,7 +106,7 @@ public class CourseController {
 
         if(!file.isEmpty()){
             log.debug("Process file: {}", file.getOriginalFilename());
-            FileUtils.copyInputStreamToFile(file.getInputStream(), new File("c:\\temp\\imooc\\", System.currentTimeMillis()+ file.getOriginalFilename()));
+            FileUtils.copyInputStreamToFile(file.getInputStream(), new File("C:\\Files\\IMOOC\\", System.currentTimeMillis()+ file.getOriginalFilename()));
         }
 
         return "success";

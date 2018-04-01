@@ -1,21 +1,46 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%--
+  Created by IntelliJ IDEA.
+  User: xiaob
+  Date: 2018/3/31
+  Time: 22:17
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://"
+            + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>我不是真正的慕课网</title>
-
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/main.css" type="text/css" />
+    <base href="<%=basePath%>"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--页面标题-->
+    <title>我不是真正的慕课网</title>
+    <!--页面Logo-->
+    <link rel="shortcut icon" href="<%=basePath%>images/voicecyber.ico"/>
+    <!--引入bootstrap样式-->
+    <link href="<%=basePath%>bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+<div class="container">
+    <h1>Hello World!Welcome, this is SpringMVC Bootstrap WebApp</h1>
+</div>
+
 <div align="center">
 
-<h1>上传附件</h1>
-<form method="post" action="/courses/doUpload" enctype="multipart/form-data">
-<input type="file" name="file"/>
-<input type="submit"/>
-</form>
+    <h1>上传附件</h1>
+    <form method="post" action="/courses/doUpload" enctype="multipart/form-data">
+        <input type="file" name="file"/>
+        <input type="submit"/>
+    </form>
 </div>
+
+<!--引入jquery脚本-->
+<script src="<%=basePath%>bootstrap/js/jquery.js" type="text/javascript"></script>
+<!--引入bootstrap脚本-->
+<script src="<%=basePath%>bootstrap/js/bootstrap.js" type="text/javascript"></script>
 </body>
 </html>
